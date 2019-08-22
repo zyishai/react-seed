@@ -1,8 +1,9 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import logo from '../../assets/images/logo.svg';
 import { appService } from './app.service';
 import './app.component.css';
+
+import logo from '../../assets/images/logo.svg';
 
 const App: React.FC = observer(() => {
   return (

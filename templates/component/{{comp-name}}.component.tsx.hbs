@@ -1,11 +1,15 @@
 import React from 'react';
+import { observer } from 'mobx-react';
+import { Container, Box } from 'bloomer';
 import { {{comp-name}}Service } from './{{comp-name}}.service';
-import './{{comp-name}}.component.css';
+import './{{comp-name}}.component.css';i
 
-const {{capitalize comp-name}}: React.FC = () => {
+const {{capitalize comp-name}}: React.FC = observer(() => {
     return (
-        <>{{capitalize comp-name}} works!</>
+        <Container>
+            <Box>{{capitalize comp-name}} works!</Box>
+        </Container>
     );
-}
+});
 
 export default {{capitalize comp-name}};

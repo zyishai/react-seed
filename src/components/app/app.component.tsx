@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../assets/images/logo.svg';
+import { appService } from './app.service';
 import './app.component.css';
 
 const App: React.FC = () => {

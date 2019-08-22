@@ -1,16 +1,16 @@
 // const NodePlop = require('node-plop').default();
 
-const createHOFActions = [{
+const createHOFAction = (path) => ({
     type: 'add',
-    path: 'src/components/{{comp-name}}/{{comp-name}}.hoc.tsx',
+    path,
     templateFile: 'templates/component/additionals/hoc.hbs',
-}];
+});
 
-const createContextActions = [{
+const createContextAction = (path) => ({
     type: 'add',
-    path: 'src/components/{{comp-name}}/{{comp-name}}.context.tsx',
+    path,
     templateFile: 'templates/component/additionals/context.hbs',
-}];
+});
 
 /**
  * Plop config function 
@@ -26,6 +26,11 @@ function plopConfig(plop) {
             name: 'comp-name',
             message: 'please type your component name'
         }, {
+            type: 'input',
+            name: 'module',
+            default: 'root',
+            message: 'type module name (could also be a component used as "parent component")'
+        }, {
             type: 'checkbox',
             name: 'additionals',
             message: 'select additional services for your component',
@@ -35,10 +40,13 @@ function plopConfig(plop) {
             ]
         }],
         actions: function(data) {
+                const filesPath = data.module !== 'root'
+                    ? 'src/components/{{module}}/{{comp-name}}'
+                    : 'src/components/{{comp-name}}';
                 const actions = [
                     {
                         type: 'addMany',
-                        destination: 'src/components/{{comp-name}}',
+                        destination: filesPath,
                         templateFiles: 'templates/component/*.*',
                         base: 'templates/component/',
                         globOptions: {
@@ -48,11 +56,11 @@ function plopConfig(plop) {
                 ];
 
                 if (data.additionals.includes('hoc')) {
-                    actions.push(...createHOFActions);
+                    actions.push(createHOFAction(filesPath + '/{{comp-name}}.hoc.tsx'));
                 }
 
                 if (data.additionals.includes('context')) {
-                    actions.push(...createContextActions);
+                    actions.push(createContextAction(filesPath + '/{{comp-name}}.context.tsx'));
                 }
 
                 return actions;
@@ -64,8 +72,19 @@ function plopConfig(plop) {
             type: 'input',
             name: 'comp-name',
             message: 'component name'
+        }, {
+            type: 'input',
+            name: 'module',
+            default: 'root',
+            message: 'type module name (could also be a component used as "parent component")'
         }],
-        actions: createHOFActions
+        actions: function(data) {
+            const filePath = data.module !== 'root'
+                ? 'src/components/{{module}}/{{comp-name}}/{{comp-name}}.hoc.tsx'
+                : 'src/components/{{comp-name}}/{{comp-name}}.hoc.tsx';
+
+            return [createHOFAction(filePath)];
+        }
     });
     plop.setGenerator('context', {
         description: 'Add a context object to existing component',
@@ -73,8 +92,19 @@ function plopConfig(plop) {
             type: 'input',
             name: 'comp-name',
             message: 'component name'
+        }, {
+            type: 'input',
+            name: 'module',
+            default: 'root',
+            message: 'type module name (could also be a component used as "parent component")'
         }],
-        actions: createContextActions
+        actions: function(data) {
+            const filePath = data.module !== 'root'
+                ? 'src/components/{{module}}/{{comp-name}}/{{comp-name}}.context.tsx'
+                : 'src/components/{{comp-name}}/{{comp-name}}.context.tsx';
+
+            return [createContextAction(filePath)];
+        }
     });
 
 }

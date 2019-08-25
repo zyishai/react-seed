@@ -12,6 +12,14 @@ const createContextAction = (path) => ({
     templateFile: 'templates/component/additionals/context.hbs',
 });
 
+const validateNames = input => {
+    if (input.split(' ').length > 1) {
+        return 'Words should be dash connected';
+    }
+
+    return true;
+}
+
 /**
  * Plop config function 
  * @param {NodePlop} plop 
@@ -24,12 +32,14 @@ function plopConfig(plop) {
         prompts: [{
             type: 'input',
             name: 'comp-name',
-            message: 'please type your component name'
+            message: 'please type your component name',
+            validate: validateNames
         }, {
             type: 'input',
             name: 'module',
             default: 'root',
-            message: 'type module name (could also be a component used as "parent component")'
+            message: 'type module name (could also be a component used as "parent component")',
+            validate: validateNames
         }, {
             type: 'checkbox',
             name: 'additionals',
@@ -71,12 +81,14 @@ function plopConfig(plop) {
         prompts: [{
             type: 'input',
             name: 'comp-name',
-            message: 'component name'
+            message: 'component name',
+            validate: validateNames
         }, {
             type: 'input',
             name: 'module',
             default: 'root',
-            message: 'type module name (could also be a component used as "parent component")'
+            message: 'type module name (could also be a component used as "parent component")',
+            validate: validateNames
         }],
         actions: function(data) {
             const filePath = data.module !== 'root'
@@ -91,12 +103,14 @@ function plopConfig(plop) {
         prompts: [{
             type: 'input',
             name: 'comp-name',
-            message: 'component name'
+            message: 'component name',
+            validate: validateNames
         }, {
             type: 'input',
             name: 'module',
             default: 'root',
-            message: 'type module name (could also be a component used as "parent component")'
+            message: 'type module name (could also be a component used as "parent component")',
+            validate: validateNames
         }],
         actions: function(data) {
             const filePath = data.module !== 'root'

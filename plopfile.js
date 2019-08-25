@@ -1,4 +1,5 @@
 // const NodePlop = require('node-plop').default();
+const glob = require('glob');
 
 const createHOFAction = (path) => ({
     type: 'add',
@@ -20,6 +21,18 @@ const validateNames = input => {
     return true;
 }
 
+const validateModuleExists = input => {
+    const isNameValid = validateNames(input);
+
+    if (!isNameValid || typeof isNameValid === 'string') {
+        return isNameValid;
+    }
+
+    const modulePaths = glob.sync(`src/components/**/${input}`)
+    
+    return input === 'root' || (modulePaths && modulePaths.length > 0);
+}
+
 /**
  * Plop config function 
  * @param {NodePlop} plop 
@@ -39,7 +52,7 @@ function plopConfig(plop) {
             name: 'module',
             default: 'root',
             message: 'type module name (could also be a component used as "parent component")',
-            validate: validateNames
+            validate: validateModuleExists
         }, {
             type: 'checkbox',
             name: 'additionals',
@@ -88,7 +101,7 @@ function plopConfig(plop) {
             name: 'module',
             default: 'root',
             message: 'type module name (could also be a component used as "parent component")',
-            validate: validateNames
+            validate: validateModuleExists
         }],
         actions: function(data) {
             const filePath = data.module !== 'root'
@@ -110,7 +123,7 @@ function plopConfig(plop) {
             name: 'module',
             default: 'root',
             message: 'type module name (could also be a component used as "parent component")',
-            validate: validateNames
+            validate: validateModuleExists
         }],
         actions: function(data) {
             const filePath = data.module !== 'root'

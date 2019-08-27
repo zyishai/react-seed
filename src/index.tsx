@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { CssBaseline } from '@material-ui/core';
 import { App } from './components/app';
 import * as serviceWorker from './serviceWorker';
 
@@ -15,5 +16,10 @@ async function bootstrap(component: any, element: HTMLElement | null) {
 }
 
 (async () => {
-    await bootstrap(<App />, document.getElementById('root'));
+    await bootstrap(
+        <>
+            <CssBaseline />
+            <App />
+        </>, 
+        document.getElementById('root'));
 })()

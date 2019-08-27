@@ -1,8 +1,9 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import './app.component.scss';
+import { Button } from '@material-ui/core';
 
 import { ReactComponent as Logo } from '../../assets/images/logo.svg';
+// import './app.component.scss';
 
 const App: React.FC = observer(() => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = observer(() => {
         >
           Learn React
         </a>
+      <Button variant="contained" color="primary">Hello World</Button>
       </header>
     </div>
   );

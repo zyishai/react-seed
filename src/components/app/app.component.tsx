@@ -6,7 +6,15 @@ import { AppbarActions } from './appbar-actions';
 
 import './app.component.scss';
 
-const theme = createMuiTheme();
+type DirectionValue = 'rtl' | 'ltr' | undefined;
+const direction = process.env.REACT_APP_UI_DIRECTION as DirectionValue;
+
+const theme = createMuiTheme({
+  direction,
+  typography: {
+    fontFamily: process.env.REACT_APP_APP_FONT || 'Roboto'
+  }
+});
 
 const App: React.ComponentType<any> = ({ width }) => {
   return (

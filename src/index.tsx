@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import { App } from './components/app';
 import * as serviceWorker from './serviceWorker';
+
+import './styles/index.scss';
 
 async function bootstrap(component: any, element: HTMLElement | null) {
     ReactDOM.render(component, element);

@@ -1,15 +1,14 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { appService } from './app.service';
-import './app.component.css';
+import './app.component.scss';
 
-import logo from '../../assets/images/logo.svg';
+import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 
 const App: React.FC = observer(() => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <Logo className="App-logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>

@@ -1,14 +1,11 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { Container, Box } from 'bloomer';
 import { {{camelCase comp-name}}Service } from './{{comp-name}}.service';
-import './{{comp-name}}.component.css';
+
+import './{{comp-name}}.component.scss';
 
 const {{pascalCase comp-name}}: React.FC = observer(() => {
     return (
-        <Container>
-            <Box>{{pascalCase comp-name}} works!</Box>
-        </Container>
     );
 });
 

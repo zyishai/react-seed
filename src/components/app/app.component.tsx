@@ -1,30 +1,30 @@
 import React from 'react';
-import { observer } from 'mobx-react';
-import { Button } from '@material-ui/core';
+import { Observer } from 'mobx-react';
+import { createMuiTheme, AppBar, Toolbar, Typography, withWidth } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/styles';
+import { AppbarActions } from './appbar-actions';
 
-import { ReactComponent as Logo } from '../../assets/images/logo.svg';
-// import './app.component.scss';
+import './app.component.scss';
 
-const App: React.FC = observer(() => {
+const theme = createMuiTheme();
+
+const App: React.ComponentType<any> = ({ width }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Logo className="App-logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      <Button variant="contained" color="primary">Hello World</Button>
-      </header>
-    </div>
+    <Observer>
+      { () =>
+        <ThemeProvider theme={theme}>
+          <AppBar position="static">
+            <Toolbar>
+              <Typography variant="h6" className="title">
+                Tasks Demo
+              </Typography>
+              <AppbarActions width={width} />
+            </Toolbar>
+          </AppBar>
+        </ThemeProvider>
+      }
+    </Observer>
   );
-});
+};
 
-export default App;
+export default withWidth()(App);

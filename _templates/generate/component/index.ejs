@@ -1,0 +1,6 @@
+---
+to: src/components/<%= module!=='root'?`${module}/`:'' %><%= h.changeCase.param(name) %>/index.tsx
+unless_exists: true
+---
+
+export { default as <%= h.changeCase.pascal(name) %> } from './<%= h.changeCase.param(name) %>.component';

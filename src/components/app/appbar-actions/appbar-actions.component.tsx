@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Observer } from 'mobx-react';
 import { isWidthDown } from '@material-ui/core/withWidth';
-import { Button, IconButton, Menu, MenuItem } from '@material-ui/core';
-import { MoreVert } from '@material-ui/icons';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import MoreVert from '@material-ui/icons/MoreVert';
 
 import './appbar-actions.component.scss';
 

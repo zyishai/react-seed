@@ -1,6 +1,10 @@
 import React from 'react';
 import { Observer } from 'mobx-react';
-import { createMuiTheme, AppBar, Toolbar, Typography, withWidth } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import withWidth from '@material-ui/core/withWidth';
+import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { AppbarActions } from './appbar-actions';
 

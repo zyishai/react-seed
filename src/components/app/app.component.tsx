@@ -1,5 +1,5 @@
 import React from 'react';
-import { Observer } from 'mobx-react';
+import { observer } from 'mobx-react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -22,21 +22,17 @@ const theme = createMuiTheme({
 
 const App: React.ComponentType<any> = ({ width }) => {
   return (
-    <Observer>
-      { () =>
-        <ThemeProvider theme={theme}>
-          <AppBar position="static">
-            <Toolbar>
-              <Typography variant="h6" className="title">
-                Tasks Demo
-              </Typography>
-              <AppbarActions width={width} />
-            </Toolbar>
-          </AppBar>
-        </ThemeProvider>
-      }
-    </Observer>
+      <ThemeProvider theme={theme}>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" className="title">
+              Shopping List Demo
+            </Typography>
+            <AppbarActions width={width} />
+          </Toolbar>
+        </AppBar>
+      </ThemeProvider>
   );
 };
 
-export default withWidth()(App);
+export default observer(withWidth()(App));

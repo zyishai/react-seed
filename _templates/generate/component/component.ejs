@@ -4,6 +4,8 @@ unless_exists: true
 ---
 import React from 'react';
 
+import './<%= h.changeCase.param(name) %>.component.scss';
+
 const <%= h.changeCase.pascal(name) %>: React.ComponentType<any> = (props) => {
     return (
         <span><%= h.changeCase.pascal(name) %> works!</span>

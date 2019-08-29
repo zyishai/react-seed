@@ -3,6 +3,9 @@ to: src/components/<%= module!=='root'?`${module}/`:'' %><%= h.changeCase.param(
 unless_exists: true
 ---
 import React from 'react';
+<% if (observer) { -%>
+import { observer } from 'mobx-react';
+<% } -%>
 
 import './<%= h.changeCase.param(name) %>.component.scss';
 
@@ -12,4 +15,8 @@ const <%= h.changeCase.pascal(name) %>: React.ComponentType<any> = (props) => {
     );
 }
 
-export default <%= h.changeCase.pascal(name) %>;
+export default <% if(observer) { -%>
+observer(<%= h.changeCase.pascal(name) %>);
+<% } else { -%>
+<%= h.changeCase.pascal(name) %>;
+<% } -%>

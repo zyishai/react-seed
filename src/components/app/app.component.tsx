@@ -9,6 +9,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import { AppbarActions } from './appbar-actions';
 
 import './app.component.scss';
+import { Demo } from '../demo';
 
 type DirectionValue = 'rtl' | 'ltr' | undefined;
 const direction = process.env.REACT_APP_UI_DIRECTION as DirectionValue;
@@ -31,6 +32,7 @@ const App: React.ComponentType<any> = ({ width }) => {
             <AppbarActions width={width} />
           </Toolbar>
         </AppBar>
+        <Demo />
       </ThemeProvider>
   );
 };

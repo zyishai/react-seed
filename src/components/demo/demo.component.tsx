@@ -3,17 +3,18 @@ import 'reflect-metadata';
 
 import './demo.component.scss';
 import { DemoStore } from '../../services/demo/demo.store';
+import { inject } from '../../config/di';
 
-class Demo extends React.Component {
-    constructor(props: { board: DemoStore }) {
-        super(props);
-    }
+type PropsType = { board: DemoStore };
 
-    render() {
-        return (
-            <span>Demo works!</span>
-        );
-    }
+const Demo = ({ board }: PropsType) => {
+    return (
+        <span>Demo works! { board && board.message }</span>
+    );
 }
 
-export default Demo;
+const InjectedDemo = inject({
+    board: DemoStore
+})(Demo);
+
+export default InjectedDemo;

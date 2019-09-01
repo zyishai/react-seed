@@ -5,9 +5,13 @@ interface ProviderOptions {
     behaviour: 'single' | 'multi';
 }
 
+interface ClassType<T> {
+    new(): T;
+    [key: string]: any;
+}
 
 function provide(options: ProviderOptions = { behaviour: 'single' }) {
-    return function<T>(target: T) {
+    return function<T>(target: ClassType<T>) {
         if (Reflect.getMetadata(HAS_METADATA_KEY, target)) {
             return target;
         }
@@ -15,15 +19,15 @@ function provide(options: ProviderOptions = { behaviour: 'single' }) {
         var factory: () => T;
         switch (options.behaviour) {
             case 'multi': {
-                factory = () => new (target as any)();
+                factory = () => new target();
                 break;
             }
             case 'single':
             default: {
-                if (!(target as any).singleton) {
-                    (target as any).singleton = new (target as any)();
+                if (!target.singleton) {
+                    target.singleton = new target();
                 }
-                factory = () => (target as any).singleton;
+                factory = () => target.singleton;
                 break;
             }
         }

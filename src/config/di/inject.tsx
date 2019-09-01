@@ -2,13 +2,13 @@ import React from 'react';
 import 'reflect-metadata';
 import { METADATA_FACTORY_KEY } from './constants';
 
-type ExtractProps<T extends Object, P extends Object> = {
-    [K in keyof T]: K extends keyof P ? never : T[K];
+interface ObjectType {
+    [key: string]: any;
 }
 
-const inject = function<P extends {[key: string]: Object}>(services: P) { 
-    return function<T extends {[key: string]: Object}>(Component: React.FC<T>): React.FC<Omit<T, keyof P>> {
-        const injectedProps: {[key: string]: Object} = {};
+const inject = function<P extends ObjectType>(services: P) { 
+    return function<T extends ObjectType>(Component: React.FC<T>) {
+        const injectedProps: ObjectType = {};
 
         for (let serviceName of Object.keys(services)) {
             const serviceClass = services[serviceName];

@@ -1,2 +1,8 @@
+import { provide } from "../../config/di";
 
-export class Demo {}
+@provide({
+    behaviour: 'multi'
+})
+export class Demo {
+    name = 'Demo instance!';
+}

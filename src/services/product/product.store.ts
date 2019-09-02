@@ -1,9 +1,11 @@
-import { observable, action, computed } from 'mobx';
+import { observable, action } from 'mobx';
 import { validate } from 'class-validator';
 import { Product } from './product';
 import { ProductProps } from './product-props';
 import { ProductQuery } from './product.query';
+import { provide } from '../../config/di';
 
+@provide()
 export class ProductStore {
     @observable private _products: Array<Product> = [];
 

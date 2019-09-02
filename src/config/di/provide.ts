@@ -1,13 +1,10 @@
 import 'reflect-metadata';
 import { HAS_METADATA_KEY, METADATA_FACTORY_KEY } from './constants';
+import { ClassType } from './types';
+import { resolveDependencies } from './common';
 
 interface ProviderOptions {
     behaviour: 'single' | 'multi';
-}
-
-interface ClassType<T> {
-    new(...props: any): T;
-    [key: string]: any;
 }
 
 // TODO: handle instantiation of specific properties (inside or outside of the constructor).
@@ -17,7 +14,7 @@ function instantiateService<T>(service: ClassType<T>) {
     if (!dependencies || (dependencies && !dependencies.length)) {
         return new service();
     } else {
-        dependencies = dependencies.map((dependency: ClassType<any>) => instantiateService(dependency));
+        dependencies = resolveDependencies(dependencies);
         return new service(...dependencies);
     }
 }
@@ -28,7 +25,7 @@ function provide(options: ProviderOptions = { behaviour: 'single' }) {
             return target;
         }
 
-        var factory: () => T;
+        var factory: () => T; // should return instance of the service (with any additional internal deps).
         switch (options.behaviour) {
             case 'multi': {
                 factory = () => instantiateService(target);

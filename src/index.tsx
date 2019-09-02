@@ -6,6 +6,10 @@ import * as serviceWorker from './serviceWorker';
 
 import './styles/index.scss';
 
+// TODO: add support for RxJS
+// TODO: add supports for plugins.
+// TODO: add general logger (default: console).
+
 async function bootstrap(component: any, element: HTMLElement | null) {
     ReactDOM.render(component, element);
 

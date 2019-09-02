@@ -36,12 +36,13 @@ export class ProductStore {
         return null;
     }
 
-    @computed
-    products(query: ProductQuery) {
-        let products = this._products.slice();
+    async getProducts(query?: ProductQuery) {
+        let _tempProducts = this._products.slice();
 
-        products = products.filter(product => product.name.includes(query.name));
+        if (query) {
+            _tempProducts = _tempProducts.filter(product => product.name.includes(query.name));
+        }
 
-        return products;
+        return _tempProducts;
     }
 }

@@ -6,18 +6,20 @@ interface ObjectType {
     [key: string]: any;
 }
 
-const inject = function<P extends ObjectType>(services: P) { 
+const inject = function<P extends ObjectType>(services?: P) { 
     return function<T extends ObjectType>(Component: React.FC<T>) {
         const injectedProps: ObjectType = {};
 
-        for (let serviceName of Object.keys(services)) {
-            const serviceClass = services[serviceName];
-            const serviceFactory = Reflect.getMetadata(METADATA_FACTORY_KEY, serviceClass);    
-            if (serviceFactory && typeof serviceFactory === 'function') {
-                const serviceInstance = serviceFactory();
-                injectedProps[serviceName] = serviceInstance;
-            } else {
-                throw new TypeError(`Provider for ${serviceClass.name} not found`);
+        if (services) {
+            for (let serviceName of Object.keys(services)) {
+                const serviceClass = services[serviceName];
+                const serviceFactory = Reflect.getMetadata(METADATA_FACTORY_KEY, serviceClass);    
+                if (serviceFactory && typeof serviceFactory === 'function') {
+                    const serviceInstance = serviceFactory();
+                    injectedProps[serviceName] = serviceInstance;
+                } else {
+                    throw new TypeError(`Provider for ${serviceClass.name} not found`);
+                }
             }
         }
 

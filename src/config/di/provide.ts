@@ -6,8 +6,20 @@ interface ProviderOptions {
 }
 
 interface ClassType<T> {
-    new(): T;
+    new(...props: any): T;
     [key: string]: any;
+}
+
+// TODO: handle instantiation of specific properties (inside or outside of the constructor).
+// also, update inject.
+function instantiateService<T>(service: ClassType<T>) {
+    let dependencies = Reflect.getMetadata('design:paramtypes', service);
+    if (!dependencies || (dependencies && !dependencies.length)) {
+        return new service();
+    } else {
+        dependencies = dependencies.map((dependency: ClassType<any>) => instantiateService(dependency));
+        return new service(...dependencies);
+    }
 }
 
 function provide(options: ProviderOptions = { behaviour: 'single' }) {
@@ -19,13 +31,13 @@ function provide(options: ProviderOptions = { behaviour: 'single' }) {
         var factory: () => T;
         switch (options.behaviour) {
             case 'multi': {
-                factory = () => new target();
+                factory = () => instantiateService(target);
                 break;
             }
             case 'single':
             default: {
                 if (!target.singleton) {
-                    target.singleton = new target();
+                    target.singleton = instantiateService(target);
                 }
                 factory = () => target.singleton;
                 break;

@@ -1,35 +1,78 @@
 import React, { useState, useEffect } from 'react';
 import 'reflect-metadata';
 
-import './demo.component.scss';
-import { DemoStore } from '../../services/demo/demo.store';
 import { inject } from '../../config/di';
-import { Demo as DemoInst } from '../../services/demo/demo';
 import { Product } from '../../services/product/product';
+import { ProductStore } from '../../services/product/product.store';
+import { TextField, Button, List, ListItem, ListItemText, Typography } from '@material-ui/core';
+import { map } from 'rxjs/operators';
+
+import './demo.component.scss';
 
 type PropsType = { 
-    board: DemoStore,
-    inst: DemoInst
-};
+    productService: ProductStore
+}
 
-const Demo = ({ board, inst }: PropsType) => {
-    const [products, setProducts] = useState([]);
+const Demo = ({ productService }: PropsType) => {
+    const [products, setProducts] = useState<Product[]>([]);
+    const [productName, setProductName] = useState<string | null>('');
+    const [errors, setErrors] = useState<any[]>([]);
 
     useEffect(() => {
-        board.productService.addProduct(new Product({
-            name: 'Bread'
-        })).then(() => {
-            board.productService.getProducts().then(p => setProducts(p as any));
-        });
+        console.log('Effect called');
+        const subscription = productService.products.subscribe(
+            (_products: Product[]) => {
+                setProducts(_products);
+            }
+        );
+        const errorSub = productService.errors.pipe(
+            map((errs: any[]) => errs.map(err => Object.values(err.constraints)))
+        ).subscribe(
+            (errors: any[]) => {
+                setErrors(errors);
+            }
+        );
+
+        subscription.add(errorSub);
+        return () => {
+            subscription.unsubscribe();
+        }
     }, []);
+
+    function addProduct() {
+        productService.addProduct({
+            name: productName as string
+        });
+        setProductName('');
+    }
+
     return (
-        <span>Demo works! { board.message } { inst.name } {JSON.stringify(products)}</span>
+        <>
+            <TextField
+                label="Product name"
+                value={productName}
+                onChange={e => setProductName(((e.nativeEvent as InputEvent).target as HTMLInputElement).value)} />
+            <Button onClick={addProduct}>Add Product</Button>
+            {
+                errors.map((error, idx) => (
+                    <Typography key={error + idx}>{ error }</Typography>
+                ))
+            }
+            <List component="nav">
+                {
+                    products.map(product => (
+                        <ListItem key={product.name}>
+                            <ListItemText primary={product.name} />
+                        </ListItem>
+                    ))
+                }
+            </List>
+        </>
     );
 }
 
 const InjectedDemo = inject({
-    board: DemoStore,
-    inst: DemoInst
+    productService: ProductStore
 })(Demo);
 
 export default InjectedDemo;

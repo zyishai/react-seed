@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Observer } from 'mobx-react';
 import { isWidthDown } from '@material-ui/core/withWidth';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
@@ -26,38 +25,34 @@ const AppbarActions: React.ComponentType<any> = ({ width }) => {
     }
 
     return (
-        <Observer>
-            {() => (
-                <>
-                    {
-                        isMobile
-                            ? (
-                                <>
-                                    <IconButton
-                                        aria-label="more"
-                                        aria-controls="menu"
-                                        aria-haspopup="true"
-                                        onClick={openMenu}
-                                        color="inherit"
-                                    >
-                                        <MoreVert />
-                                    </IconButton>
-                                    <Menu
-                                        id="menu"
-                                        anchorEl={anchorEl}
-                                        open={open}
-                                        keepMounted
-                                        onClose={closeMenu}
-                                    >
-                                        <MenuItem key='login' onClick={closeMenu}>Login</MenuItem>
-                                    </Menu>
-                                </>
-                            )
-                            : <Button color="inherit">Login</Button>
-                    }
-                </>
-            )}
-       </Observer>
+        <>
+            {
+                isMobile
+                    ? (
+                        <>
+                            <IconButton
+                                aria-label="more"
+                                aria-controls="menu"
+                                aria-haspopup="true"
+                                onClick={openMenu}
+                                color="inherit"
+                            >
+                                <MoreVert />
+                            </IconButton>
+                            <Menu
+                                id="menu"
+                                anchorEl={anchorEl}
+                                open={open}
+                                keepMounted
+                                onClose={closeMenu}
+                            >
+                                <MenuItem key='login' onClick={closeMenu}>Login</MenuItem>
+                            </Menu>
+                        </>
+                    )
+                    : <Button color="inherit">Login</Button>
+            }
+        </>
     );
 };
 

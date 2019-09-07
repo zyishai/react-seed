@@ -22,7 +22,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "types": [
-      "reflect-metadata"
+      "reflect-metadata",
+      "dom-inputevent"
     ]
   },
   "include": [

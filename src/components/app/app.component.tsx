@@ -1,5 +1,4 @@
 import React from 'react';
-import { observer } from 'mobx-react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -37,4 +36,4 @@ const App: React.ComponentType<any> = ({ width }) => {
   );
 };
 
-export default observer(withWidth()(App));
+export default withWidth()(App);

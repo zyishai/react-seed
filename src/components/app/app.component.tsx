@@ -1,15 +1,12 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import withWidth from '@material-ui/core/withWidth';
-import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import { AppbarActions } from './appbar-actions';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import Box from '@material-ui/core/Box';
 
-import './app.component.scss';
-import { Demo } from '../demo';
+import { Footer } from './footer';
+import { AppBar } from './app-bar';
 
 type DirectionValue = 'rtl' | 'ltr' | undefined;
 const direction = process.env.REACT_APP_UI_DIRECTION as DirectionValue;
@@ -24,15 +21,15 @@ const theme = createMuiTheme({
 const App: React.ComponentType<any> = ({ width }) => {
   return (
       <ThemeProvider theme={theme}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" className="title">
-              Shopping List Demo
-            </Typography>
-            <AppbarActions width={width} />
-          </Toolbar>
-        </AppBar>
-        <Demo />
+        <AppBar width={width} />
+        <Box display='flex' flexDirection='column' overflow='auto' flexGrow={1}>
+          <Box flexGrow={1} overflow='auto' alignSelf='center'>
+            {/* rest of your app here */}
+          </Box>
+          <Box px={2} py={1} textAlign='center' bgcolor="secondary.main" color="secondary.contrastText">
+            <Footer />
+          </Box>
+        </Box>
       </ThemeProvider>
   );
 };

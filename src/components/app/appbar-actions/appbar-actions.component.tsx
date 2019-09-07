@@ -49,7 +49,9 @@ const AppbarActions: React.ComponentType<any> = ({ width }) => {
                                         keepMounted
                                         onClose={closeMenu}
                                     >
-                                        <MenuItem key='login' onClick={closeMenu}>Login</MenuItem>
+                                        <MenuItem key='login' onClick={closeMenu}>
+                                            Login
+                                        </MenuItem>
                                     </Menu>
                                 </>
                             )

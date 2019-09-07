@@ -23,7 +23,10 @@
     "noEmit": true,
     "types": [
       "reflect-metadata"
-    ]
+    ],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true
   },
   "include": [
     "src"

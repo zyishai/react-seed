@@ -6,13 +6,18 @@ import './footer.component.scss';
 
 const Footer: React.ComponentType<any> = (props) => {
     return (
-        <Typography>
-            Built with {' '}
-            {
-              <Favorite fontSize='inherit' />
-            } 
-            {' '}by Yishai Zehavi
-        </Typography>
+        <>
+            <Typography variant="body2" color="textSecondary" align="center">
+                Built with {' '}
+                {
+                <Favorite fontSize='inherit' />
+                } 
+                {' '}by Yishai Zehavi
+            </Typography>
+            <Typography variant="body2" color="textSecondary" align="center">
+                <a href="https://www.vecteezy.com/">Graphics by: www.vecteezy.com</a>
+            </Typography>
+        </>
     );
 }
 

@@ -6,6 +6,7 @@ import Box from '@material-ui/core/Box';
 
 import { Footer } from './footer';
 import { AppBar } from './app-bar';
+import { ShoppingList } from '../shopping-list';
 
 type DirectionValue = 'rtl' | 'ltr' | undefined;
 const direction = process.env.REACT_APP_UI_DIRECTION as DirectionValue;
@@ -24,10 +25,9 @@ const App: React.ComponentType<any> = ({ width }) => {
         <Box display='flex' flexDirection='column' overflow='auto' flexGrow={1}>
           <Box flexGrow={1} overflow='auto' alignSelf='center'>
             {/* rest of your app here */}
+            <ShoppingList />
           </Box>
-          <Box px={2} py={1} textAlign='center' bgcolor="secondary.main" color="secondary.contrastText">
-            <Footer />
-          </Box>
+          <Footer />
         </Box>
       </ThemeProvider>
   );

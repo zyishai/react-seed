@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, MinLength } from 'class-validator';
+import { IsString, IsNotEmpty, MinLength, IsNumber, Min,  } from 'class-validator';
 import { v4 } from 'uuid';
 import { ProductProps } from './product-props';
 
@@ -8,13 +8,25 @@ export class Product {
 
     @IsString()
     @IsNotEmpty()
-    @MinLength(5)
+    @MinLength(3)
     public name: string;
 
+    @IsString()
+    @IsNotEmpty()
+    public imageUrl: string;
+
+    @IsNumber()
+    @Min(0)
+    public amount: number;
+
     constructor({
-        name
+        name,
+        imageUrl,
+        amount
     }: ProductProps) {
         this.id = v4();
         this.name = name;
+        this.imageUrl = imageUrl;
+        this.amount = amount;
     }
 }

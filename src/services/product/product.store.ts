@@ -31,6 +31,22 @@ export class ProductStore {
         return product;
     }
 
+    async updateProduct(productId: string, props: Partial<ProductProps>) {
+        const tempProducts = this._products.value.slice();
+        const product = tempProducts.find(product => product.id === productId);
+
+        if (product && product instanceof Product) {
+            type ProductKey = keyof ProductProps;
+            Object.keys(props).forEach((key: any) => {
+                // see: https://github.com/microsoft/TypeScript/issues/31663
+                (product as any)[key] = props[key as ProductKey];
+            });
+        }
+
+        this._errors.next([]);
+        this._products.next(tempProducts);
+    }
+
     async deleteProduct(productId: string): Promise<Product | null> {
         const productIndex = this._products.value.findIndex(product => product.id === productId);
 
@@ -52,15 +68,5 @@ export class ProductStore {
 
     get errors() {
         return this._errors.asObservable();
-    }
-
-    async getProducts(query?: ProductQuery) {
-        let _tempProducts = this._products.value.slice();
-
-        if (query) {
-            _tempProducts = _tempProducts.filter(product => product.name.includes(query.name));
-        }
-
-        return _tempProducts;
     }
 }

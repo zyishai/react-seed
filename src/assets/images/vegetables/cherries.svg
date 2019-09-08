@@ -1,0 +1,51 @@
+
+<svg width="246px" height="320px" viewBox="0 0 246 320" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="flat-kawaii-fruit" transform="translate(-468.358149, -499.545467)" fill-rule="nonzero">
+            <g id="Group" transform="translate(468.000000, 500.000000)">
+                <g transform="translate(0.000000, 213.000000)">
+                    <g>
+                        <circle id="Oval" fill="#E8291A" cx="53.735" cy="52.979" r="52.811"></circle>
+                        <g transform="translate(12.000000, 48.000000)">
+                            <g transform="translate(8.000000, 0.000000)" fill="#2E1F1C">
+                                <g id="Oval">
+                                    <circle cx="5.657" cy="6.049" r="5.47"></circle>
+                                    <circle cx="62.059" cy="6.049" r="5.47"></circle>
+                                </g>
+                                <path d="M46.229,18.993 C46.229,25.668 40.817,31.079 34.142,31.079 C27.468,31.079 22.057,25.668 22.057,18.993" id="Shape"></path>
+                            </g>
+                            <g transform="translate(0.000000, 17.000000)" fill="#FF665A" id="Oval">
+                                <ellipse cx="73.512" cy="5.446" rx="9.4" ry="5.182"></ellipse>
+                                <ellipse cx="10.205" cy="5.446" rx="9.4" ry="5.182"></ellipse>
+                            </g>
+                        </g>
+                    </g>
+                    <g transform="translate(140.000000, 0.000000)">
+                        <circle id="Oval" fill="#E8291A" cx="52.846" cy="52.979" r="52.811"></circle>
+                        <g transform="translate(12.000000, 48.000000)">
+                            <g transform="translate(7.000000, 0.000000)" fill="#2E1F1C">
+                                <g id="Oval">
+                                    <circle cx="5.91" cy="6.049" r="5.47"></circle>
+                                    <circle cx="62.313" cy="6.049" r="5.471"></circle>
+                                </g>
+                                <path d="M46.482,18.993 C46.482,25.668 41.07,31.079 34.396,31.079 C27.722,31.079 22.31,25.668 22.31,18.993" id="Shape"></path>
+                            </g>
+                            <g transform="translate(0.000000, 17.000000)" fill="#FF665A" id="Oval">
+                                <ellipse cx="72.765" cy="5.446" rx="9.4" ry="5.182"></ellipse>
+                                <ellipse cx="9.458" cy="5.446" rx="9.4" ry="5.182"></ellipse>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <polygon id="Shape" fill="#2E1F1C" points="60.567 222.173 55.391 220.547 123.491 3.872 191.19 219.269 186.013 220.895 123.491 21.966"></polygon>
+                <g transform="translate(61.000000, 0.000000)" id="Shape">
+                    <path d="M47.357,47.394 C61.881,38.071 69.565,22.138 69.064,6.06 L0.734,49.924 C15.147,57.073 32.833,56.719 47.357,47.394 Z" fill="#3EBA79"></path>
+                    <path d="M0.093,49.62 C0.304,49.727 0.52,49.817 0.734,49.924 L69.064,6.06 C69.059,5.823 69.065,5.586 69.055,5.349 C54.531,-2.13 36.529,-1.886 21.791,7.573 C7.056,17.034 -0.66,33.301 0.093,49.62 Z" fill="#30A565"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

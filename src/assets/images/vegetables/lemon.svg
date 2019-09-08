@@ -1,0 +1,40 @@
+
+<svg width="198px" height="267px" viewBox="0 0 198 267" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="flat-kawaii-fruit" transform="translate(-1115.358149, -553.545467)" fill-rule="nonzero">
+            <g id="Group" transform="translate(1115.000000, 553.000000)">
+                <path d="M198.092,151.19 C198.092,106.013 167.709,68.321 126.269,56.634 C122.71,45.054 111.934,36.999 99.186,36.999 L98.114,36.999 C85.188,36.999 74.307,45.297 70.903,57.126 C30.348,69.371 0.81,106.823 0.81,151.374 C0.81,195.972 30.414,234.23 71.036,246.434 C74.604,257.998 85.376,266.999 98.114,266.999 L99.186,266.999 C111.735,266.999 122.359,258.149 126.085,246.849 C167.618,235.223 198.092,196.438 198.092,151.19 Z" id="Shape" fill="#FFCA36"></path>
+                <g transform="translate(35.000000, 150.000000)">
+                    <g>
+                        <g transform="translate(11.000000, 0.000000)" fill="#2E1F1C">
+                            <g id="Oval">
+                                <circle cx="9.55" cy="9.548" r="8.594"></circle>
+                                <circle cx="98.166" cy="9.548" r="8.594"></circle>
+                            </g>
+                            <path d="M73.295,29.887 C73.295,40.373 64.793,48.875 54.305,48.875 C43.819,48.875 35.317,40.373 35.317,29.887" id="Shape"></path>
+                        </g>
+                        <g transform="translate(0.000000, 27.000000)" fill="#FF665A" id="Oval">
+                            <ellipse cx="114.591" cy="8.312" rx="14.769" ry="8.139"></ellipse>
+                            <ellipse cx="15.125" cy="8.312" rx="14.769" ry="8.139"></ellipse>
+                        </g>
+                    </g>
+                    <g transform="translate(0.000000, 27.000000)" fill="#FF9A55" id="Oval">
+                        <ellipse cx="114.591" cy="8.312" rx="14.769" ry="8.139"></ellipse>
+                        <ellipse cx="15.125" cy="8.312" rx="14.769" ry="8.139"></ellipse>
+                    </g>
+                </g>
+                <g transform="translate(16.000000, 0.000000)" id="Shape">
+                    <path d="M33.643,48.259 C50.22,53.059 67.276,48.361 79.051,37.402 L1.058,14.82 C5.158,30.376 17.063,43.459 33.643,48.259 Z" fill="#3EBA79"></path>
+                    <path d="M0.864,14.137 C0.922,14.366 0.997,14.589 1.057,14.82 L79.05,37.402 C79.226,37.241 79.407,37.092 79.581,36.927 C75.652,21.07 63.622,7.676 46.802,2.805 C29.982,-2.064 12.657,2.831 0.864,14.137 Z" fill="#30A565"></path>
+                </g>
+                <path d="M95,39 L95,5.144 C95,3.936 96.503,2.957 98.5,2.957 C100.497,2.957 102,3.936 102,5.144 L102,39" id="Shape" fill="#2E1F1C"></path>
+                <g opacity="0.3" transform="translate(120.000000, 83.000000)" fill="#FFFFFF" id="Oval">
+                    <circle cx="18.439" cy="18.218" r="18.084"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

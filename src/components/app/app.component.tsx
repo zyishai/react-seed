@@ -1,5 +1,4 @@
 import React from 'react';
-import { observer } from 'mobx-react';
 import withWidth from '@material-ui/core/withWidth';
 import { ThemeProvider } from '@material-ui/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
@@ -34,4 +33,4 @@ const App: React.ComponentType<any> = ({ width }) => {
   );
 };
 
-export default observer(withWidth()(App));
+export default withWidth()(App);

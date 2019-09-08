@@ -16,12 +16,6 @@ module.exports = {
             message: 'enter module name',
             initial: 'root',
             skip: (!!args.module || !!args.name)
-        }, {
-            type: 'toggle',
-            name: 'observer',
-            message: 'observer?',
-            enabled: 'yes',
-            disabled: 'no'
         }]);
     }
 }

@@ -1,7 +1,6 @@
 import { validate } from 'class-validator';
 import { Product } from './product';
 import { ProductProps } from './product-props';
-import { ProductQuery } from './product.query';
 import { provide } from '../../config/di';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -9,8 +8,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class ProductStore {
     private _products = new BehaviorSubject<Product[]>([]);
     private _errors = new BehaviorSubject<any[]>([]);
-
-    constructor() {}
 
     async addProduct(props: ProductProps): Promise<Product | null> {
         const product = new Product(props);

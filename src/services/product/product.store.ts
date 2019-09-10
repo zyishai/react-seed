@@ -58,7 +58,7 @@ export class ProductStore {
         const productIndex = this._products.value.findIndex(product => product.id === productId);
 
         if (productIndex >= 0) {
-            const products = this._products.getValue();
+            const products = this._products.value.slice();
             const removedItem = products.splice(productIndex, 1)[0];
             this._products.next(products);
             return removedItem;
@@ -69,11 +69,24 @@ export class ProductStore {
         return null;
     }
 
+    // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get#Smart_self-overwriting_lazy_getters
     get products(): Observable<Product[]> {
-        return this._products.asObservable();
+        delete (this as any).products;
+
+        Object.defineProperty(this, 'products', {
+            value: this._products.asObservable()
+        });
+
+        return this.products;
     }
 
-    get errors() {
-        return this._errors.asObservable();
+    get errors(): Observable<any[]> {
+        delete (this as any).errors;
+
+        Object.defineProperty(this, 'errors', {
+            value: this._errors.asObservable()
+        });
+
+        return this.errors;
     }
 }

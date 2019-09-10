@@ -7,6 +7,7 @@ import Box from '@material-ui/core/Box';
 import { Footer } from './footer';
 import { AppBar } from './app-bar';
 import { ShoppingList } from '../shopping-list';
+import { Fake } from '../fake';
 
 type DirectionValue = 'rtl' | 'ltr' | undefined;
 const direction = process.env.REACT_APP_UI_DIRECTION as DirectionValue;
@@ -21,6 +22,7 @@ const theme = createMuiTheme({
 const App: React.ComponentType<any> = ({ width }) => {
   return (
       <ThemeProvider theme={theme}>
+        <Fake />
         <AppBar width={width} />
         <Box display='flex' flexDirection='column' overflow='auto' flexGrow={1}>
           <Box flexGrow={1} overflow='auto' alignSelf='center'>

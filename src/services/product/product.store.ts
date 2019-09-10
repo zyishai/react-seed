@@ -44,6 +44,16 @@ export class ProductStore {
         this._products.next(tempProducts);
     }
 
+    async updateAmount(productId: string, amount: number) {
+        const tempProducts = this._products.value.slice();
+        const product = tempProducts.find(product => product.id === productId);
+
+        if (product && product.amount + amount >= 0) {
+            product.amount += amount;
+            this._products.next(tempProducts);
+        }
+    }
+
     async deleteProduct(productId: string): Promise<Product | null> {
         const productIndex = this._products.value.findIndex(product => product.id === productId);
 

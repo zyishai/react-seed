@@ -6,8 +6,6 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVert from '@material-ui/icons/MoreVert';
 
-import './appbar-actions.component.scss';
-
 const AppbarActions: React.ComponentType<any> = ({ width }) => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);

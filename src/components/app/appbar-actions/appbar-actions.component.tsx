@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { isWidthDown } from '@material-ui/core/withWidth';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
 import MoreVert from '@material-ui/icons/MoreVert';
+import { AddProductAction } from './add-product-action';
 
 const AppbarActions: React.ComponentType<any> = ({ width }) => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -22,33 +21,37 @@ const AppbarActions: React.ComponentType<any> = ({ width }) => {
         setAnchorEl(null);
     }
 
+    const actions = (
+        <AddProductAction mobile={isMobile} onClick={closeMenu} />
+    );
+
     return (
         <>
             {
                 isMobile
-                    ? (
-                        <>
-                            <IconButton
-                                aria-label="more"
-                                aria-controls="menu"
-                                aria-haspopup="true"
-                                onClick={openMenu}
-                                color="inherit"
-                            >
-                                <MoreVert />
-                            </IconButton>
-                            <Menu
-                                id="menu"
-                                anchorEl={anchorEl}
-                                open={open}
-                                keepMounted
-                                onClose={closeMenu}
-                            >
-                                <MenuItem key='login' onClick={closeMenu}>Login</MenuItem>
-                            </Menu>
-                        </>
-                    )
-                    : <Button color="inherit">Login</Button>
+                ? (
+                    <>
+                        <IconButton
+                            aria-label="more"
+                            aria-controls="menu"
+                            aria-haspopup="true"
+                            onClick={openMenu}
+                            color="inherit"
+                        >
+                            <MoreVert />
+                        </IconButton>
+                        <Menu
+                            id="menu"
+                            anchorEl={anchorEl}
+                            open={open}
+                            keepMounted
+                            onClose={closeMenu}
+                        >
+                            { actions }
+                        </Menu>
+                    </>
+                )
+                : actions 
             }
         </>
     );

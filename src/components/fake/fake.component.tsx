@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import firebase from 'firebase';
+import { authState } from 'rxfire/auth';
 
 import { inject } from '../../config/di';
 import { ProductStore } from '../../services/product/product.store';

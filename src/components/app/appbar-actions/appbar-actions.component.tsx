@@ -21,14 +21,15 @@ const AppbarActions: React.ComponentType<any> = ({ width }) => {
         setAnchorEl(null);
     }
 
-    const actions = (
-        <AddProductAction mobile={isMobile} onClick={closeMenu} />
-    );
+    // const actions = (
+    //     <AddProductAction mobile={isMobile} onClick={closeMenu} />
+    // );
+
+    const actions = (null);
 
     return (
         <>
-            {
-                isMobile
+            {actions && isMobile
                 ? (
                     <>
                         <IconButton

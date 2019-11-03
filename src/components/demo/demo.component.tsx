@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'reflect-metadata';
 
-import { inject } from '../../config/di';
 import { Product } from '../../services/product/product';
 import { ProductStore } from '../../services/product/product.store';
 import { TextField, Button, List, ListItem, ListItemText, Typography } from '@material-ui/core';
@@ -13,7 +12,7 @@ type PropsType = {
     productService: ProductStore
 }
 
-const Demo = ({ productService }: PropsType) => {
+const Demo: React.FC<any> = ({ productService }: PropsType) => {
     const [products, setProducts] = useState<Product[]>([]);
     const [productName, setProductName] = useState<string | null>('');
     const [errors, setErrors] = useState<any[]>([]);
@@ -71,8 +70,4 @@ const Demo = ({ productService }: PropsType) => {
     );
 }
 
-const InjectedDemo = inject({
-    productService: ProductStore
-})(Demo);
-
-export default InjectedDemo;
+export default Demo;

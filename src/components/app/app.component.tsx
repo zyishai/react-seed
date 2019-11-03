@@ -2,23 +2,23 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 import withWidth from '@material-ui/core/withWidth';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import { AppbarActions } from './appbar-actions';
 
 import './app.component.scss';
-import { Demo } from '../demo';
+import { Footer } from './footer';
 
 type DirectionValue = 'rtl' | 'ltr' | undefined;
 const direction = process.env.REACT_APP_UI_DIRECTION as DirectionValue;
 
-const theme = createMuiTheme({
+const theme = responsiveFontSizes(createMuiTheme({
   direction,
   typography: {
     fontFamily: process.env.REACT_APP_APP_FONT || 'Roboto'
   }
-});
+}));
 
 const App: React.ComponentType<any> = ({ width }) => {
   return (
@@ -28,10 +28,10 @@ const App: React.ComponentType<any> = ({ width }) => {
             <Typography variant="h6" className="title">
               Shopping List Demo
             </Typography>
-            <AppbarActions width={width} />
           </Toolbar>
         </AppBar>
-        <Demo />
+        <Box display='flex' flexDirection='column' flexGrow={1} overflow='auto' />
+        <Footer />
       </ThemeProvider>
   );
 };

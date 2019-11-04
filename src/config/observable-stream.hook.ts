@@ -2,7 +2,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { useState, useEffect } from 'react';
 
 const useObservableStream = <T, U>(observable: Observable<T>, pipe?: OperatorFunction<T, U>) => {
-    const [data, setData] = useState<U extends {} ? U : T>();
+    const [data, setData] = useState<U extends unknown ? T : U>();
 
     useEffect(() => {
         const obs: Observable<any> = pipe ? observable.pipe(pipe) : observable;

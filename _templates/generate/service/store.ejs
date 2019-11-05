@@ -1,8 +1,0 @@
----
-to: src/services/<%= h.changeCase.param(name) %>/<%= h.changeCase.param(name) %>.store.ts
-unless_exists: true
----
-import { provide } from "../../config/di";
-
-@provide()
-export class <%= h.changeCase.pascal(name) %>Store {}

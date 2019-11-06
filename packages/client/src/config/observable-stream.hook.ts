@@ -9,7 +9,7 @@ const useObservableStream = <T, U>(observable: Observable<T>, pipe?: OperatorFun
         const sub = obs.subscribe(setData);
 
         return () => sub.unsubscribe();
-    }, [observable]);
+    }, [observable, pipe]);
 
     return data;
 }

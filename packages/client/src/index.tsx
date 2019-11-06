@@ -1,11 +1,20 @@
 import React from 'react';
 import { render as renderReact } from 'react-dom';
+
+// material-ui imports
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { App } from './components/app';
+
+// external libraries
+import { injectServices } from '@react-seed/di';
+
+// local imports
 import * as serviceWorker from './serviceWorker';
 
+// external component imports
+import { App } from './components/app';
+
+// external styles
 import './styles/index.scss';
-import { injectServices } from '@react-seed/di';
 
 // TODO: add supports for plugins.
 // TODO: add general logger (default: console).

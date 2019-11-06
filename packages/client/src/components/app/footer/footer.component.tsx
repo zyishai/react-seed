@@ -1,4 +1,6 @@
 import React from 'react';
+
+// material-ui imports
 import Typography from '@material-ui/core/Typography';
 import Favorite from '@material-ui/icons/Favorite';
 import Box from '@material-ui/core/Box';

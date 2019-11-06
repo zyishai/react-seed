@@ -1,4 +1,6 @@
 import React from 'react';
+
+// material-ui imports
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -6,8 +8,12 @@ import Box from '@material-ui/core/Box';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
+// external styles
 import './app.component.scss';
+
+// external component imports
 import { Footer } from './footer';
+
 
 type DirectionValue = 'rtl' | 'ltr' | undefined;
 const direction = process.env.REACT_APP_UI_DIRECTION as DirectionValue;

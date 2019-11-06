@@ -4,7 +4,7 @@ import Favorite from '@material-ui/icons/Favorite';
 import Box from '@material-ui/core/Box';
 import CopyrightIcon from '@material-ui/icons/Copyright';
 
-const Footer: React.ComponentType<any> = (props) => {
+const Footer: React.ComponentType<any> = () => {
     return (
         <Box py={2}>
             <Typography variant="body2" color="textSecondary" align="center">

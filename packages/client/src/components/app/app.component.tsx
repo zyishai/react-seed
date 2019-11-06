@@ -3,7 +3,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import withWidth from '@material-ui/core/withWidth';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
@@ -20,7 +19,7 @@ const theme = responsiveFontSizes(createMuiTheme({
   }
 }));
 
-const App: React.ComponentType<any> = ({ width }) => {
+const App: React.ComponentType<any> = () => {
   return (
       <ThemeProvider theme={theme}>
         <AppBar position="static">
@@ -36,4 +35,4 @@ const App: React.ComponentType<any> = ({ width }) => {
   );
 };
 
-export default withWidth()(App);
+export default App;

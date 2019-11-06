@@ -5,7 +5,7 @@ import { App } from './components/app';
 import * as serviceWorker from './serviceWorker';
 
 import './styles/index.scss';
-import { injectServices } from './config/di/inject';
+import { injectServices } from '@react-seed/di';
 
 // TODO: add supports for plugins.
 // TODO: add general logger (default: console).

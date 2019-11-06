@@ -1,0 +1,21 @@
+{
+  "name": "@react-seed/di",
+  "version": "1.0.0",
+  "description": "Dependency injection library for react-seed.",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "author": "Yishai Zehavi (zehaviyishai@gmail.com)",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^12.12.6",
+    "typescript": "^3.7.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "dependencies": {
+    "react": "^16.11.0"
+  }
+}

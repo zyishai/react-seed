@@ -2,7 +2,7 @@ import { validate } from 'class-validator';
 import { Product } from './product';
 import { ProductProps } from './product-props';
 import { ProductQuery } from './product.query';
-import { provide } from '../../config/di';
+import { provide } from '@react-seed/di';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @provide()
